@@ -18,18 +18,21 @@ class AddNote extends Component {
     static defaultProps = {
         history: {
           push: () => { }
-        },
+        }
       }
+
       static contextType = ApiContext;
     
       submitForm = event => {
         event.preventDefault()
+
         const newNote = {
           name: event.target['name'].value,
           content: event.target['content'].value,
           folderId: event.target['folder-select'].value,
           modified: new Date(),
         }
+
         fetch(`${config.API_ENDPOINT}/notes`, {
           method: 'POST',
           headers: {
@@ -37,15 +40,19 @@ class AddNote extends Component {
           },
           body: JSON.stringify(newNote),
         })
-          .then(res => {
-            if (!res.ok)
-              return res.json().then(e => Promise.reject(e))
-            return res.json()
+
+          .then(response => {
+            if (!response.ok)
+              return response.json().then(event => 
+                Promise.reject(event))
+            return response.json()
           })
+
           .then(note => {
             this.context.addNote(note)
             this.props.history.push(`/folder/${note.folderId}`)
           })
+
           .catch(error => {
             console.error({ error })
           })

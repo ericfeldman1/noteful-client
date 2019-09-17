@@ -44,22 +44,22 @@ class App extends Component {
         });
     };
 
-    addFolder = name => {
+    addFolder = folder => {
         this.setState({
             folders: [
                 ...this.state.folders,
             {
-                name
+                folder
               }]
         })
     };
 
-    addNote = name => {
+    addNote = note => {
         this.setState({
             notes: [
                 ...this.state.notes, 
                 {
-                    name
+                    note
                 }
             ]
         })
