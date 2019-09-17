@@ -8,12 +8,15 @@ import { BrowserRouter } from 'react-router-dom'
 import 'typeface-roboto'
 import './index.css'
 import App from './App/App'
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 
 library.add(faPlus, faChevronLeft, faTrashAlt, faCheckDouble)
 
 ReactDOM.render(
   <BrowserRouter>
+    <ErrorBoundary>
     <App />
+    </ErrorBoundary>
   </BrowserRouter>,
   document.getElementById('root')
 )
