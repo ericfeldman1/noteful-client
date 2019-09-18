@@ -35,12 +35,7 @@ class AddFolder extends Component {
           body: JSON.stringify(folder),
         })
 
-          .then(response => {
-            if (!response.ok)
-              return response.json().then(event => 
-                Promise.reject(event))
-            return response.json()
-          })
+          .then(response =>response.json())
 
           .then(folder => {
             this.context.addFolder(folder)

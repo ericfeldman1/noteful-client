@@ -48,9 +48,9 @@ class App extends Component {
         this.setState({
             folders: [
                 ...this.state.folders,
-            {
+            
                 folder
-              }]
+              ]
         })
     };
 
