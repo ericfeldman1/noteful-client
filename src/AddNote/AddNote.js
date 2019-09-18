@@ -41,14 +41,9 @@ class AddNote extends Component {
           body: JSON.stringify(newNote),
         })
 
-          .then(response => {
-            if (!response.ok)
-              return response.json().then(event => 
-                Promise.reject(event))
-            return response.json()
-          })
+        .then(response => response.json())
 
-          .then(note => {
+        .then(note => {
             this.context.addNote(note)
             this.props.history.push(`/folder/${note.folderId}`)
           })

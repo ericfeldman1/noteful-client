@@ -58,9 +58,7 @@ class App extends Component {
         this.setState({
             notes: [
                 ...this.state.notes, 
-                {
                     note
-                }
             ]
         })
     }
